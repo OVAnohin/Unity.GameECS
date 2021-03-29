@@ -20,7 +20,7 @@ namespace Unity.GameECS
         private void MoveThePlayer(PlayerViewRef player, PlayerMovableComponent playerMovableComponent)
         {
             Vector3 movement = Vector3.right * playerMovableComponent.MovementSpeed * Time.deltaTime;
-            player.Value.GetComponent<Rigidbody>().MovePosition(player.Value.transform.position + movement);
+            player.SceneObject.GetComponent<Rigidbody>().MovePosition(player.SceneObject.transform.position + movement);
         }
     }
 }

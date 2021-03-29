@@ -7,7 +7,8 @@ namespace Unity.GameECS
     sealed class EcsStartup : MonoBehaviour
     {
         [SerializeField] private PlayerInitData _playerInitData;
-        [SerializeField] private CinemachineVirtualCamera _vcamCM;
+        [SerializeField] private SceneData _sceneData;
+        [SerializeField] private CameraData _cameraData;
 
         private EcsWorld _world;
         private EcsSystems _systems;
@@ -28,6 +29,7 @@ namespace Unity.GameECS
                 .Add(new CreatePlayerViewSystem())
                 .Add(new PlayerMoveSystem())
                 .Add(new PlayerRotateSystem())
+                .Add(new CameraMoveSystem())
 
                 // register one-frame components (order is important), for example:
                 // .OneFrame<TestComponent1> ()
@@ -35,6 +37,8 @@ namespace Unity.GameECS
 
                 // inject service instances here (order doesn't important), for example:
                 .Inject(_playerInitData)
+                .Inject(_sceneData)
+                .Inject(_cameraData)
                 // .Inject (new NavMeshSupport ())
                 .Init();
         }

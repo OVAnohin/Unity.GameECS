@@ -15,7 +15,7 @@ namespace Unity.GameECS
                 var playerView = Object.Instantiate(_playerInitData.PlayerPrefab);
                 playerView.transform.position = _playerInitData.StartPosition;
 
-                _filter.GetEntity(item).Get<PlayerViewRef>().Value = playerView;
+                _filter.GetEntity(item).Get<PlayerViewRef>().SceneObject = playerView;
             }
         }
     }

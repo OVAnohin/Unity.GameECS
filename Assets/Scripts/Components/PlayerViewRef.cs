@@ -2,6 +2,6 @@
 {
     internal struct PlayerViewRef
     {
-        public PlayerView Value;
+        public PlayerView SceneObject;
     }
 }

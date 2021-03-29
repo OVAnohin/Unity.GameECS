@@ -20,7 +20,7 @@ namespace Unity.GameECS
 
         private void TurnThePlayer(PlayerViewRef player, PlayerMovableComponent playerMovableComponent)
         {
-            Rigidbody playerRigidbody = player.Value.GetComponent<Rigidbody>();
+            Rigidbody playerRigidbody = player.SceneObject.GetComponent<Rigidbody>();
             Quaternion turn = playerRigidbody.rotation * Quaternion.Euler(0, 0, _turnAngle);
             Quaternion rotation = Quaternion.Slerp(playerRigidbody.rotation, turn, playerMovableComponent.RotationSpeed);
             playerRigidbody.MoveRotation(rotation);
