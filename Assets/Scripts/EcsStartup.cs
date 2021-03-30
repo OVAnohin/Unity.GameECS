@@ -11,6 +11,7 @@ namespace Unity.GameECS
 
         private EcsWorld _world;
         private EcsSystems _systems;
+        private EcsSystems _fixedUpdate;
 
         private void Start()
         {
@@ -26,8 +27,6 @@ namespace Unity.GameECS
                 // register your systems here, for example:
                 .Add(new GameInitializeSystem())
                 .Add(new CreatePlayerViewSystem())
-                .Add(new PlayerMoveSystem())
-                .Add(new PlayerRotateSystem())
                 .Add(new SetCameraSystem())
 
                 // register one-frame components (order is important), for example:
@@ -39,11 +38,21 @@ namespace Unity.GameECS
                 .Inject(_sceneData)
                 // .Inject (new NavMeshSupport ())
                 .Init();
+
+            _fixedUpdate = new EcsSystems(_world);
+            _fixedUpdate.Add(new PlayerMoveSystem());
+            _fixedUpdate.Add(new PlayerRotateSystem());
+            _fixedUpdate.Init();
         }
 
         private void Update()
         {
             _systems?.Run();
+        }
+
+        private void FixedUpdate()
+        {
+            _fixedUpdate.Run();
         }
 
         private void OnDestroy()
