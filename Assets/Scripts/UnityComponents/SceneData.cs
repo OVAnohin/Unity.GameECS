@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 namespace Unity.GameECS
 {
     public class SceneData : MonoBehaviour
     {
-        [SerializeField] private Transform _cameraTransform;
+        [SerializeField] private CinemachineVirtualCamera _virtualCamera;
 
-        public Transform CameraTransform => _cameraTransform;
+        public CinemachineVirtualCamera VirtualCamera => _virtualCamera;
     }
 }

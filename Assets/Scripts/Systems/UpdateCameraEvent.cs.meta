@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: f837a7e79186d3e41a3706e31e002ba1
+guid: b3ca3b0cf235dd0499d10af155bc1618
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - _vcamCM: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

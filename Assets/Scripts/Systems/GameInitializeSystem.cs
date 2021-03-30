@@ -14,6 +14,8 @@ namespace Unity.GameECS
             player.Get<PlayerMovableComponent>().JumpForce = _playerInitData.JumpForce;
             player.Get<PlayerMovableComponent>().MovementSpeed = _playerInitData.MovementSpeed;
             player.Get<PlayerMovableComponent>().RotationSpeed = _playerInitData.RotationSpeed;
+
+            _world.NewEntity().Get<UpdateCameraEvent>();
         }
     }
 }
