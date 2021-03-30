@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Cinemachine;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Unity.GameECS
@@ -18,7 +19,6 @@ namespace Unity.GameECS
                     ref var player = ref _playerFilter.Get1(item);
                     _sceneData.VirtualCamera.Follow = player.SceneObject.transform;
                     _sceneData.VirtualCamera.LookAt = player.SceneObject.transform;
-                    
                 }
             }
         }

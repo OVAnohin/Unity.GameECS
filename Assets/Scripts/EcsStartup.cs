@@ -28,7 +28,7 @@ namespace Unity.GameECS
                 .Add(new CreatePlayerViewSystem())
                 .Add(new PlayerMoveSystem())
                 .Add(new PlayerRotateSystem())
-                //.Add(new CameraMoveSystem())
+                .Add(new SetCameraSystem())
 
                 // register one-frame components (order is important), for example:
                 .OneFrame<UpdateCameraEvent>()
